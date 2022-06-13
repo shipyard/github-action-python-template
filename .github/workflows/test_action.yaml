@@ -1,4 +1,4 @@
-# .github/workflow/test_action.yaml
+# .github/workflows/test_action.yaml
 name: Test Action
 on: [push]
 
@@ -10,11 +10,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Fetch num squared
-				id: get_square
-				uses: ./ # Uses an action in the root directory
+        id: get_square
+        uses: ./ # Uses an action in the root directory
         # or use a released Github Action
-				# uses: shipyard/github-action/fetch-shipyard-env@1.0.0
-				with:
-			    num: 11
+        # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+        with:
+          num: 11
       - name: Print the square
         run: echo "${{ steps.get_square.outputs.num_squared }}"
